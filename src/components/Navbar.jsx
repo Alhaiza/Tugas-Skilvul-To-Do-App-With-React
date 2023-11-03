@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 function Navbar() {
   return (
     <header className="text-white">
@@ -7,8 +9,12 @@ function Navbar() {
         </h1>
       </div>
       <ul className="bg-orange-300 flex flex-row justify-center gap-10 text-lg p-2">
-        <li className="hover:text-orange-600">Home</li>
-        <li className="hover:text-orange-600">Todo</li>
+        <NavLink to="/" className="hover:text-orange-600">
+          Home
+        </NavLink>
+        <NavLink to="/todo" className="hover:text-orange-600">
+          Todo
+        </NavLink>
       </ul>
     </header>
   );
