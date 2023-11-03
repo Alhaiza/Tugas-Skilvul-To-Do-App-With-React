@@ -4,8 +4,8 @@ export const TodoContext = createContext();
 
 function TodoProvider({ children }) {
   const [todos, setTodos] = useState([
-    { id: 1, value: "Belajar Todo", status: false },
-    { id: 2, value: "Belajar React", status: false },
+    { id: 1, value: "Make Todo App", status: false },
+    { id: 2, value: "Learn React", status: false },
   ]);
 
   return (
