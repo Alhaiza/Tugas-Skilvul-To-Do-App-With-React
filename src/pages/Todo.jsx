@@ -1,6 +1,6 @@
 import TodoList from "../components/Todo-List";
 import TodoInfo from "../components/TodoInfo";
-import TodoInput from "../components/todo-input";
+import TodoInput from "../components/Todo-Input";
 
 function Todo() {
   return (
