@@ -1,11 +1,20 @@
-import InputTodoList from "./components/input-todo";
-import TodoList from "./components/todo-list";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Todo from "./pages/Todo";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
-      <InputTodoList />
-      <TodoList />
+      <div className="bg-orange-100 h-[100vh]">
+        {/* navbar */}
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/todo" element={<Todo />} />
+        </Routes>
+      </div>
     </>
   );
 }
