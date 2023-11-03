@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TodoContext } from "../context/TodoProvider";
 
 function TodoList() {
-  const { todos, setTodos } = useContext(TodoContext);
+  const { todos, setTodos, setTodoInput, setIsEdit, setEdit } =
+    useContext(TodoContext);
 
   const handleStatus = (index) => {
     let cloneTodos = [...todos];
@@ -10,7 +11,12 @@ function TodoList() {
     setTodos([...cloneTodos]);
   };
 
-  console.log(todos);
+  const handleEdit = (todo) => {
+    setEdit(todo);
+    setTodoInput(todo.value);
+    setIsEdit(true);
+  };
+
   return (
     <div>
       {todos.map((todo, index) => (
@@ -29,6 +35,7 @@ function TodoList() {
 
           <div className="flex flex-row justify-between gap-2">
             <button
+              onClick={() => handleEdit(todo)}
               className={
                 todo.status
                   ? "hidden"
