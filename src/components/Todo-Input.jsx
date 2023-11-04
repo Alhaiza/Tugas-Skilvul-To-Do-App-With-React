@@ -5,7 +5,6 @@ import { TodoContext } from "../context/TodoProvider";
 function TodoInput() {
   const { todos, setTodos, edit, todoInput, setTodoInput, isEdit, setIsEdit } =
     useContext(TodoContext);
-  const [input, setInput] = useState("");
 
   const handeClick = (e) => {
     e.preventDefault();

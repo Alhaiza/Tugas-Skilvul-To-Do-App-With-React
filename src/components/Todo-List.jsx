@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { TodoContext } from "../context/TodoProvider";
 
 function TodoList() {
@@ -6,7 +6,7 @@ function TodoList() {
     useContext(TodoContext);
 
   const handleStatus = (index) => {
-    let cloneTodos = [...todos];
+    let cloneTodos = { ...todos };
     cloneTodos[index].status = !cloneTodos[index].status;
     setTodos([...cloneTodos]);
   };
@@ -17,14 +17,29 @@ function TodoList() {
     setIsEdit(true);
   };
 
+  const handleDelete = (id) => {
+    const newTodo = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodo);
+  };
+
   return (
     <div>
+      <div className="flex flex-row gap-10 mt-2">
+        <button className="bg-gray-500 px-5 rounded-lg text-white">ALL</button>
+        <button className="bg-gray-500 px-5 rounded-lg text-white">
+          ACTIVE
+        </button>
+        <button className="bg-gray-500 px-5 rounded-lg text-white">
+          COMPLETED
+        </button>
+      </div>
+
       {todos.map((todo, index) => (
         <div
           key={todo.id}
           className="mt-4 flex flex-row justify-between bg-orange-300 p-4 rounded-xl shadow-md items-center"
         >
-          <span className="font-semibold flex items-center">
+          <span className="font-semibold flex items-center text-black">
             <input
               type="checkbox"
               className="w-4 h-4 mr-2"
@@ -54,6 +69,7 @@ function TodoList() {
               TASK DONE
             </span>
             <button
+              onClick={() => handleDelete(todo.id)}
               className={
                 todo.status
                   ? "hidden"
