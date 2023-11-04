@@ -6,7 +6,7 @@ function TodoList() {
     useContext(TodoContext);
 
   const handleStatus = (index) => {
-    let cloneTodos = { ...todos };
+    const cloneTodos = [...todos];
     cloneTodos[index].status = !cloneTodos[index].status;
     setTodos([...cloneTodos]);
   };
@@ -24,16 +24,6 @@ function TodoList() {
 
   return (
     <div>
-      <div className="flex flex-row gap-10 mt-2">
-        <button className="bg-gray-500 px-5 rounded-lg text-white">ALL</button>
-        <button className="bg-gray-500 px-5 rounded-lg text-white">
-          ACTIVE
-        </button>
-        <button className="bg-gray-500 px-5 rounded-lg text-white">
-          COMPLETED
-        </button>
-      </div>
-
       {todos.map((todo, index) => (
         <div
           key={todo.id}
