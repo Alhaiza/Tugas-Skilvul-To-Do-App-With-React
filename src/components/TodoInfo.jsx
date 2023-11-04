@@ -6,7 +6,9 @@ function TodoInfo() {
   return (
     <div>
       <div className="mt-10">
-        <h1 className="text-lg font-bold">Total Todo : {todos.length}</h1>
+        <h1 className="text-lg font-bold">
+          {todos.length == 0 ? "No Todo" : "Todos : " + todos.length}
+        </h1>
       </div>
     </div>
   );
